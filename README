@@ -1,0 +1,3 @@
+These are bash scripts used to keep a git-tracked development R package in sync with its installs. Put both scripts in the package diretory. The ./configure script is run by default upon R CMD INSTALL. It checks that all changes have been commited before install and adds a Revision field to the DESCRIPTION file.
+
+The ./cleanup script reverts the directory as it was before install. It is called only if install was made with the --clean option. In any event, ./configure tries to install a pre-commit hook that will lock commits if DESCRIPTION still contains a Revision field (because this would be misleading).
