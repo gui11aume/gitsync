@@ -26,6 +26,12 @@ EndOfScriptBody
 return 0
 }
 
+# Check that everything is OK with git.
+if ! git status > /dev/null
+then
+   exit 1
+fi
+
 # Check if repository is dirty.
 CLEAN=$(git status | grep "working directory clean")
 if [ -z "$CLEAN" ]; then
